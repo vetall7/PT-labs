@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -15,7 +14,6 @@ public class Main {
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
-
 
         Tower tower1 = new Tower("Ivory Tower", 100, null);
         Tower tower2 = new Tower("Mage Tower", 200, null);
@@ -151,7 +149,7 @@ public class Main {
                     }
                     em.getTransaction().commit();
                 }
-                case "Short_towers" -> {
+                case "short_towers" -> {
                     em.getTransaction().begin();
                     System.out.println("Enter height: ");
                     int height = scanner.nextInt();

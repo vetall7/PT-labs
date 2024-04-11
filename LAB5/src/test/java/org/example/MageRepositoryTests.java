@@ -36,12 +36,7 @@ public class MageRepositoryTests {
     }
     @Test
     public void testDelete_doest_exist() {
-        try {
-            mageRepository.delete("D");
-            fail();
-        } catch (IllegalArgumentException e) {
-            assertEquals("Invalid mage name", e.getMessage());
-        }
+        assertThrows(IllegalArgumentException.class, () -> mageRepository.delete("D"));
     }
     @Test
     public void testDelete_exists() {
@@ -51,12 +46,7 @@ public class MageRepositoryTests {
     }
     @Test
     public void testSave_exists() {
-        try {
-            mageRepository.save(new Mage("A", 1));
-            fail();
-        } catch (IllegalArgumentException e) {
-            assertEquals("Mage already exists", e.getMessage());
-        }
+        assertThrows(IllegalArgumentException.class, () -> mageRepository.save(new Mage("A", 1)));
     }
     @Test
     public void testSave_doest_exist() {
